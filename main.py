@@ -11,7 +11,7 @@ class SpeedtestClient(discord.Client):
 
         if message.content == '/speedtest':
             speedtest = subprocess.run(['speedtest'], capture_output=True, text=True)
-            await message.channel.send(f'```\n{speedtest.stdout}\n```')
+            await message.channel.send(f'```\n{speedtest.stdout}\n```', silent=True)
 
 intents = discord.Intents.default()
 intents.message_content = True
