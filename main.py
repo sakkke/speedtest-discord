@@ -9,7 +9,7 @@ class SpeedtestClient(discord.Client):
     async def on_message(self, message):
         print(f'Message from {message.author}: {message.content}')
 
-        if message.content == '/speedtest':
+        if message.content == '/speedtest' or message.content == '!speedtest':
             speedtest = subprocess.run(['speedtest'], capture_output=True, text=True)
             await message.channel.send(f'```\n{speedtest.stdout}\n```', silent=True)
 
