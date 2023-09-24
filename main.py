@@ -12,6 +12,7 @@ class SpeedtestClient(discord.Client):
         if (message.content == '/speedtest' or
             message.content == '!speedtest' or
             self.user.mentioned_in(message)):
+            await message.channel.send('速度を測定しています…', silent=True)
             speedtest = subprocess.run(['speedtest'], capture_output=True, text=True)
             await message.channel.send(f'```\n{speedtest.stdout}\n```', silent=True)
 
